@@ -56,6 +56,9 @@ search_path_guess() returns a string that is a guessed value for $ENV{'PATH'}.
 Note that search_path_guess() B<DOES NOT> set $ENV{'PATH'}, it just returns a
 string with which you can set $ENV{'PATH'} as you like.
 
+If $ENV{'PATH'} is already defined, the guessed path is appended to it and
+returned.
+
 A good practice is to only use search_path_guess() to set the local value of
 $ENV{'PATH'}. That way you aren't messing around with a global that some
 function you don't know about is relying on to be a certain way. So, for
@@ -96,7 +99,7 @@ F<miko@idocs.com>
 
 =head1 VERSION
 
-Version: 0.10
+Version: 0.11
 
 =head1 HISTORY
 
@@ -105,6 +108,13 @@ Version: 0.10
 =item Version 0.10    December 30, 2014
 
 Initial release
+
+=item Version 0.11    December 30, 2014
+
+Fixed prerequisite declaration for File::Which so that it requires
+version 1.09.
+
+Clarifed and cleaned up documentation.
 
 =back
 
